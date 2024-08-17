@@ -50,13 +50,13 @@
         let title = document.getElementById("title");
         let forgotPassword = document.getElementById("forgotPassword");
 
-        // Store users in localStorage
+        // Store users in localStorage as an object
         const users = JSON.parse(localStorage.getItem('users')) || {};
 
         signinBtn.onclick = function () {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            if (users[username] && users[username] === password) {
+            if (users[username] && users[username].password === password) {
                 localStorage.setItem('currentUser', username);
                 window.location.href = 'dashboard.html';
             } else {
@@ -69,8 +69,33 @@
                 const email = document.getElementById("email").value;
                 const username = document.getElementById("username").value;
                 const password = document.getElementById("password").value;
+
+                // Check if email is already taken
+                if (Object.values(users).some(user => user.email === email)) {
+                    alert("Email is already taken.");
+                    return;
+                }
+
+                // Check if username is already taken or too short
+                if (username.length < 5) {
+                    alert("Username is too short.");
+                    return;
+                }
+
+                if (users[username]) {
+                    alert("Username already exists. Please choose another one.");
+                    return;
+                }
+
+                // Check if password is too weak
+                if (password.length < 5) {
+                    alert("Password is too easy.");
+                    return;
+                }
+
+                // If all validations pass, store the user information
                 if (email && username && password) {
-                    users[username] = password;  // You may want to store email and password together in an object
+                    users[username] = { email: email, password: password };
                     localStorage.setItem('users', JSON.stringify(users));
                     alert("Account created successfully. Please sign in.");
                     // Reset the form to sign in mode
@@ -103,6 +128,13 @@
             signinBtn.style.display = "inline-block";
             signupBtn.innerText = "Sign Up";
             backToSigninBtn.style.display = "none";
+            clearFields();  // Clear input fields when switching modes
+        }
+
+        function clearFields() {
+            document.getElementById("email").value = '';
+            document.getElementById("username").value = '';
+            document.getElementById("password").value = '';
         }
 
         // Cursor Effect
