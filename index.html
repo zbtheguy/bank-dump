@@ -157,6 +157,13 @@
                 }, index * 40);
             });
         });
+         // Check if the user is logged in by looking for 'currentUser' in localStorage
+    const currentUser = localStorage.getItem('currentUser');
+
+    // If the user is logged in (currentUser exists), redirect to the login page
+    if (currentUser) {
+        window.location.href = 'login.html';  // Replace with your login page URL if different
+    }
     </script>
 </body>
 
