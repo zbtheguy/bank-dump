@@ -88,7 +88,7 @@
                 }
 
                 // Check if username is already taken or too short
-                if (username.length < 5) {
+                if (username.length < 5 || username.length > 1) {
                     alert("Username is too short.");
                     return;
                 }
