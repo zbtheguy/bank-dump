@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <span>GGM Store</span>
+            </div>
+            <div class=" user-info">
+                <a href="wallet.html" class="balance-button">+$0</a>
+                <div class="username">
+                  <img src="rose.jpg" alt="Profile" style="width:30px;height:30px;border-radius:50%;">
+                  <span id="usernameDisplay">burnerbuzzin</span>
+                  <button onclick="toggleDropdown()">▼</button>
+                  <div id="userDropdown" class="dropdown-content hidden">
+                    <a href="wallet.html">Wallet</a>
+                    <a href="Settings.html">Settings</a>
+                    <a href="index.html" onclick="logout()">Logout</a>
+                  </div>
+                </div>
+            </div>
+          </header>
+          <aside id="sidebar" class="sidebar">
+            <nav>
+              <ul>
+                <li class="menu-title">Menu</li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="wallet.html">Order History</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="load.html">Bug Report</a></li>
+                <li class="menu-title">Products</li>
+                <li><a href="load.html">Bank Logs</a></li>
+                <li><a href="load.html">Card</a></li>
+                <li><a href="load.html">Card With Pin</a></li>
+              </ul>
+            </nav>
+          </aside>
+        </header>
+        <div class="notification">
+            <p class="new-feature"><strong style="color: red;">New Feature!!!</strong> You can ReChecker CVV on order
+                history</p>
+        </div>
+        <div class="dashboard">
+            <div class="top-sections">
+                <div class="section">
+                    <h2>Your Orders</h2>
+                    <div class="content-wrapper">
+                        <p>Your Order Today</p>
+                        <img src="cart.png" alt="Logo" class="logo-small">
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Bank Logs</h2>
+                    <div class="content-wrapper">
+                        <p>Bank Log Added Today</p>
+                        <img src="bank.webp" alt="Logo" class="logo-small">
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Card</h2>
+                    <div class="content-wrapper">
+                        <p>Card Added Today</p>
+                        <img src="cards.png" alt="Logo" class="logo-small">
+                    </div>
+                </div>
+                <a href="https://t.me/showski4" class="news-channel-button">
+                    <div class="section news-channel">
+                        <h2>NEWS CHANNEL</h2>
+                        <p>14189 participants</p>
+                    </div>
+                </a>
+            </div>
+            <div class="content">
+                <div class="stock">
+                    <div class="stock-title">In Stock</div>
+                    <div class="stock-item" onclick="toggleStock('card')">
+                        <h3>Card Stock <button>▼</button></h3>
+                        <ul id="card-stock-list" class="hidden">
+                            <li><img src="visa.png" alt="Visa"> Visa</li>
+                            <li><img src="mastercard.png" alt="MasterCard"> MasterCard</li>
+                            <li><img src="amex.png" alt="American Express"> American Express</li>
+                            <li><img src="discover.png" alt="Discover"> Discover</li>
+                        </ul>
+                    </div>
+                    <div class="stock-item" onclick="toggleStock('bank')">
+                        <h3>Bank Stock <button>▼</button></h3>
+                        <ul id="bank-stock-list" class="hidden">
+                            <li><img src="chase.png" alt="Chase">Chase</li>
+                            <li><img src="Wells.png" alt="Wells">Wells Fargo</li>
+                            <li><img src="hunt.png" alt="Hunt">Huntington</li>
+
+                            <li><img src="usaa.png" alt="usaa">USAA</li>
+                            <li><img src="amex.png" alt="Amex">American Express</li>
+                            <li><img src="cibc.png" alt="Cibc">CIBC</li>
+                            <li><img src="scotia.png" alt="scotia">Scotiabank</li>
+                            <li><img src="td.webp" alt="TD">TD Bank</li>
+                            <li><img src="rbc.png" alt="RBC">RBC</li>
+                            <li><img src="bank.webp" alt="Other">Other Banks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="base-activity">
+                    <h3>Base Activity</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Base 1</th>
+                                <th>Base 2</th>
+                                <th>Base 3</th>
+                                <th>Base 4</th>
+                                <th>Base 5</th>
+                                <th>Base 6</th>
+                                <th>Total Card</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-07-20</td>
+                                <td>1136</td>
+                                <td>0</td>
+                                <td>838</td>
+                                <td>16</td>
+                                <td>0</td>
+                                <td>217</td>
+                                <td>2207</td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-20</td>
+                                <td>8778</td>
+                                <td>246</td>
+                                <td>667</td>
+                                <td>165</td>
+                                <td>0</td>
+                                <td>390</td>
+                                <td>10646</td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-20</td>
+                                <td>29</td>
+                                <td>73</td>
+                                <td>197</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>603</td>
+                                <td>902</td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-20</td>
+                                <td>0</td>
+                                <td>507</td>
+                                <td>189</td>
+                                <td>1631</td>
+                                <td>0</td>
+                                <td>287</td>
+                                <td>2614</td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-20</td>
+                                <td>1889</td>
+                                <td>578</td>
+                                <td>179</td>
+                                <td>10</td>
+                                <td>0</td>
+                                <td>150</td>
+                                <td>2806</td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-17</td>
+                                <td>34</td>
+                                <td>110</td>
+                                <td>382</td>
+                                <td>101</td>
+                                <td>0</td>
+                                <td>314</td>
+                                <td>941</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© 2024 Made with by GGM TEAM</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const usernameDisplay = document.getElementById('usernameDisplay');
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                usernameDisplay.textContent = currentUser;
+            } else {
+                usernameDisplay.textContent = 'Guest';
+            }
+        });
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html'; // redirect to login page
+        }
+
+        function toggleStock(type) {
+            const stockList = document.getElementById(`${type}-stock-list`);
+            stockList.classList.toggle('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        });
+        document.querySelector('.menu-icon').addEventListener('click', function () {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

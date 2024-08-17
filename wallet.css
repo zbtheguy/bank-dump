@@ -1,0 +1,406 @@
+body {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://giffiles.alphacoders.com/174/1744.gif");
+    background-attachment: fixed;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgb(255, 0, 0, 0.8);
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: auto;
+    /* Aligns the menu icon to the right */
+  }
+  
+  .menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+  }
+  
+  .menu-title {
+    padding: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #610000;
+    border-bottom: 1px solid #444;
+  }
+  
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .balance {
+    margin-right: 20px;
+  }
+  
+  .username {
+    position: relative;
+  }
+  
+  .username button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  
+  
+  .dropdown-content.hidden {
+    display: none;
+  }
+  
+  
+  
+  
+  
+  .notification {
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 2px solid green;
+    border-radius: 50px;
+    padding: 5px 10px;
+    background-color: black;
+    /* Add this line */
+  }
+  
+  .highlight {
+    color: yellow;
+  }
+  
+  .add-balance {
+    background-color: #ff5c5c;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .history-container {
+    margin-top: 20px;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .history-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+  }
+  
+  .history {
+    margin-top: 10px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+  
+  th {
+    background-color: #ffffff;
+  }
+  
+  .profile-pic {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  header .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .user-info .balance {
+    background-color: #ff0000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  header .user-info .username {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .username {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .username img {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  
+  
+  
+  
+  .dropdown-content a:hover {
+    background-color: #000000;
+  }
+  
+  .dropdown-content a:last-child {
+    border-bottom: none;
+  }
+  
+  .username button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    padding: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  
+  .username:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #990000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .add-balance {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-balance:hover {
+    background-color: #ffe600;
+  }
+  
+  
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #444;
+  }
+  
+  
+  
+  .dropdown-content a:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-content li {
+    padding-left: 20px;
+  }
+  
+  #balance {
+    margin-right: 15px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .balance-button {
+    display: inline-block;
+    background-color: white;
+    color: red;
+    padding: 5px 15px;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease;
+    margin-right: 20px;
+    box-shadow: 0 0 20px rgb(255, 255, 255, 0.8);
+  }
+  
+  .balance-button:hover {
+    background-color: hsl(0, 100%, 50%);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .balance-button:active {
+    background-color: #1e4bb8;
+    transform: translateY(0);
+  }
+  
+  
+  
+  .sidebar-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #470000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 99999;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  .sidebar nav ul li {
+    padding: 15px;
+    /* To position dropdowns correctly */
+  }
+  
+  .sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .sidebar nav ul ul {
+    display: none;
+    padding-left: 15px;
+    background-color: #2a2a38;
+    position: absolute;
+    /* Ensure dropdown appears below parent item */
+    left: 100%;
+    /* Align to the right of the parent item */
+    top: 0;
+    width: 250px;
+    /* Match the width of the sidebar */
+  }
+  
+  .sidebar nav ul ul {
+    display: none;
+    padding-left: 15px;
+  }
+  
+  .sidebar nav ul li:hover>ul {
+    display: block;
+    /* Show dropdown on hover */
+  }
+  
+  .sidebar nav ul ul li {
+    padding-left: 20px;
+  }
+  
+  
+  
+  .sidebar nav ul li:hover>ul {
+    display: block;
+    /* Show dropdown on hover */
+  }
+  
+  th {
+    background-color: white;
+    /* Change this line */
+    color: black;
+    /* Add this line to change the text color to black for better readability */
+  }

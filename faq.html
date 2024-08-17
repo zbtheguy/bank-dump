@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <link rel="stylesheet" href="faq.css">
+    <script defer src="faq.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+            <div class="header-center">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo">
+                    <span>GGM Store</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="wallet.html" class="balance-button">+$0</a>
+                <div class="username">
+                    <img src="rose.jpg" alt="Profile" style="width:30px;height:30px;border-radius:50%;">
+                    <span id="usernameDisplay">Profile zf23</span>
+                    <button onclick="toggleDropdown()">▼</button>
+                    <div id="userDropdown" class="dropdown-content hidden">
+                        <a href="wallet.html">Wallet</a>
+                        <a href="#">Settings</a>
+                        <a href="login.html" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside id="sidebar" class="sidebar">
+            <nav>
+                <ul>
+                    <li class="menu-title">Menu</li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li class="dropdown">
+                        <a href="wallet.html">Order History</a>
+                        <ul class="dropdown-content">
+                            <li><a href="load.html">○ Bank</a></li>
+                            <li><a href="load.html">○ Card</a></li>
+                            <li><a href="load.html">○ Card WITH PIN</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="load.html">Bug Report</a></li>
+                    <li class="menu-title">Products</li>
+                    <li><a href="load.html">Bank Logs</a></li>
+                    <li><a href="load.html">Card</a></li>
+                    <li><a href="load.html">Card With Pin</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="content">
+            <h2>Most Commonly Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How to topup store credit?
+                    </button>
+                    <div class="faq-answer">-CLICK ON THE TOP UP BUTTON ON THE TOP RIGHT CORNER, AND ENTER YOUR DESIRED AMOUNT TO TOPUP. (MINIMUM OF 100$)<br><br>-BTC ADDRESS WILL BE GENERATED FOR YOU TO SEND THE PAYMENT.<br><br>-If there is an error during topup, try to use different browser or device as it may detect that your browser or device is not updated to the latest version.<br><br>*EACH TOPUP REQUEST WILL GENERATE A NEW BTC ADDRESS, SO DO NOT SEND A MULTIPLE PAYMENT TO THE SAME ADDRESS.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        Topup still not reflected after blockchain confirmation?
+                    </button>
+                    <div class="faq-answer"> -Your payment may be detected as underpaid/overpaid or delayed.<br><br>
+                        -You can check your payment status in your info status in the topup history.<br><br>
+                        -Please do not cancel your topup if your invoice status reflect overpaid/underpaid as it will be manually confirmed by customer service.<br><br>
+                        *DO NOTE THAT CUSTOMER SERVICE IS NOT AVAILABLE 24/7 AS SO PLEASE BE PATIENT. CUSTOMER SERVICE WILL CONFIRM AS SOON AS THEY ARE AVAILABLE.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        What is topup underpaid/overpaid?
+                    </button>
+                    <div class="faq-answer">As payment method is used by BTC, please send the EXACT amount in BTC and not in USD. If not it will cause the overpaid/underpaid status. Other common factor would be your service provider will deduct the fees inclusive of your amount of transaction.<br><br>*PLEASE EXERCISE WITH THROUGH CALCULATION.
+
+
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How to buy Logs?
+                    </button>
+                    <div class="faq-answer">Go to the product section to select options you desire and proceed to payment.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How many type of logs are there?
+                    </button>
+                    <div class="faq-answer">BANK LOGS<br>
+                        : Consist of bank logins and billing information<br>: Email access, ATM pin, Card information, and mother's maiden name, account and routing number may or may not be available as it depends on spam results.
+<br><br>CARD LOGS<br>: Consist of Card information, billing information, user agent info. <br>: SSN, mother maiden name may or may not be available as it depends on spam result.<br><br>
+CC with Pin<br>: Consist of Card information, ATM pin, Billing information.<br>: Mother's maiden name, middle name.<br>: Email access will not be available as they will be considered as bank logs and CC with pin will not have email access.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        What does my order status means?
+                    </button>
+                    <div class="faq-answer">PENDING - This show that your purchase is successful.<br><br>
+                        WAITING - This shows that your log information has been released by the seller in the chat.<br><br>
+                        SUCCESS - This shows that the information has been released and the timeframe for your verification has ended. If there is no feedback within the designated timeframe, we will assume that there is no issue with the logs.<br>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How to get bank logs?
+                    </button>
+                    <div class="faq-answer">These are the steps to get your bank logs<br> 1. After purchasing a bank log, go to your "order history" and click on the "chat seller" buttton to contact your seller.<br> 2. The seller will then proceed to post to you a set of rules please do read the rules and understand before replying, only after that the seller will post the bank log after you agree with the designated rules.<br>
+                        3. Please save your bank logs once the seller released the log as the log will be dispose of after to prevent from resale or duplicate in the future.                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How to get card logs?
+                    </button>
+                    <div class="faq-answer">This is directly available in your order history once you purchase the card log.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        How to get cc with pin information?
+                    </button>
+                    <div class="faq-answer">These are the steps to get your CC with pin<br>1. After purchasing a CC with pin, go to your "order history" and click on the "chat seller" button to contact your seller.<br>
+                        2. The seller will then proceed to post to you a set of rules please do read the rules and understand before replying, only after that the seller will post the CC with pin information after you agree with the designated rules.<br>3. Please save your CC with pin information once the seller released it as the information will be dispose of after to prevent from resale or duplicate in the future.                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        Why am I unable to contact the seller?
+                    </button>
+                    <div class="faq-answer">The seller may be dealing with other customers as the seller must settle thoroughly with their existing customer before proceeding to the next, the seller also may be offline if you receive error with the message "no agent available", try again after few hours.                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        What do I do if the seller still not replying, releasing my log or offline?
+                    </button>
+                    <div class="faq-answer">Refund button will be available for you after 4 hours from the time you made the purchase, you can refund yourself through your order history if you can't wait any longer.                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        Can I buy in bulk quantity?
+                    </button>
+                    <div class="faq-answer">NO, all available log will be uploaded on the store, and will not be sold privately. </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        Can I request specific bin or bank log to buy?
+                    </button>
+                    <div class="faq-answer">NO, all the logs are random and greatly depends on spam results. </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        When does the store updates on their logs?
+                    </button>
+                    <div class="faq-answer">There is no specific timeframe that the store updates on the logs as it is random and depends on the spam result. So do check our site regularly to keep updated!</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <img class="icon" src="question-icon.png" alt="Question Icon">
+                        Why my initial chat to the seller disappear?
+                    </button>
+                    <div class="faq-answer">This is caused by the initial chat with the seller being disconnected due to the usage of browser that does not save cache/cookies such as Brave, Tor, private mode in safari, incognito tab or direct browser from telegram.<br> <br>
+                        - To avoid such event happen, please use a normal browser until the seller reply to your message and send you your log information.<br><br>- If your browser cache/cookies is not saved/cleaned, your initial chat log will dissapear causing you to initiating or requesting new chat.
+                        <br><br>- This will disrupt the flow of the seller and may cause more time consumption to deliver your log. (KIV)
+
+                    </div>
+                </div>
+            </div>
+
+            <h2>Return and Refund</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <img class="icon" src="question-icon.png" alt="Question Icon">
+                    Do we get refund?
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        <strong>BANK LOG :</strong> Within 15 minutes after you receiving logs you will get refund with our terms and services
+                        <br><br>
+                        (Except Your Personal Fault : Suspicious Activity, Can't do cashout, IF YOU HIT 2FA ON EMAIL OR LOG IS FAKE BALANCE IS LESS THEN ADVERTISED UP TO 75% OF THE ADVERTISED AMOUNT)
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <img class="icon" src="question-icon.png" alt="Question Icon">
+                    On what criteria can I ask for an order refund?
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        <strong>BANK LOGS:</strong><br>
+                        - If the account credentials is not working.<br>
+                        - If the bank account balance is lower than 75% as advertised.
+                        <br><br>
+                        <strong>CARD LOGS:</strong><br>
+                        - Card logs sold on store is NOT REFUNDABLE as we do already provide you a checker upon checkout.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

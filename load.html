@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+        <span ">GGM Store</span>
+      </div>
+      <div class=" user-info">
+          <a href="wallet.html" class="balance-button">+$0</a>
+          <div class="username">
+            <img src="rose.jpg" alt="Profile" style="width:30px;height:30px;border-radius:50%;">
+            <span id="usernameDisplay">burnerbuzzin</span>
+            <button onclick="toggleDropdown()">▼</button>
+            <div id="userDropdown" class="dropdown-content hidden">
+              <a href="wallet.html">Wallet</a>
+              <a href="Settings.html">Settings</a>
+              <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+          </div>
+      </div>
+    </header>
+    <aside id="sidebar" class="sidebar">
+      <nav>
+        <ul>
+          <li class="menu-title">Menu</li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="wallet.html">Order History</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="load.html">Bug Report</a></li>
+          <li class="menu-title">Products</li>
+          <li><a href="load.html">Bank Logs</a></li>
+          <li><a href="load.html">Card</a></li>
+          <li><a href="load.html">Card With Pin</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="invoice">
+      <h2>INVOICE: <span id="invoice-number"></span></h2>
+      <p>You are paying with <strong>BITCOIN</strong></p>
+      <img src="Barcode.png" alt="Barcode" class="barcode">
+      <input type="text" value="3AQ845veuAcVTK1L957z5GaHosCVcuyDrv" readonly>
+      <p class="warning">Your account is not yet activated so you won't be able to use features of shop. Please activate
+        your account. Minimum deposit is 100$.</p>
+      <div class="status">
+        <h3>STATUS</h3>
+        <p class="waiting">WAITING PAYMENT</p>
+      </div>
+      <div class="instructions">
+        <p>YOUR BALANCE WILL BE CREDITED AUTOMATICALLY AFTER 3 CONFIRMATIONS RECEIVED AS WELL MARKED AS SUCCESS HERE</p>
+        <ul>
+          <li>Send as much BTC as you want.</li>
+          <li>Send money within 1 hour.</li>
+          <li>Make sure to pay transaction's fee to get confirmed faster.</li>
+          <li>After your transactions get 3 confirmations your balance will be added to your account automatically.</li>
+          <li>This Bitcoin address will be terminated in 24 hours. Any received money after 24 hours will be lost.</li>
+          <li>We do not process payments manually even if your transaction can't get confirmed up to 7 days.</li>
+          <li><strong>WE DO NOT REFUND</strong></li>
+        </ul>
+      </div>
+      <p class="expiry">Your Invoice will be expired in: <span class="time" id="timer">1 Hour 59 Minutes 0
+          Seconds</span></p>
+    </div>
+  </div>
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.classList.toggle('hidden');
+    }
+
+    function logout() {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html'; // redirect to login page
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/6ee7de340f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign In</h1>
+            <form id="authForm">
+                <div class="input-group">
+                    <!-- Email field, initially hidden, shown only in Sign Up mode -->
+                    <div class="input-field" id="emailField" style="display: none;">
+                        <i class="fa fa-envelope"></i> <!-- Icon here -->
+                        <input type="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" placeholder="Username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                    <p id="forgotPassword">Forgot Password <a href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signinBtn">Sign In</button>
+                    <button type="button" id="signupBtn">Sign Up</button>
+                    <button type="button" id="backToSigninBtn" style="display: none;">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cursor Circles -->
+    <div id="cursorContainer"></div>
+
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let backToSigninBtn = document.getElementById("backToSigninBtn");
+        let nameField = document.getElementById("nameField");
+        let emailField = document.getElementById("emailField");
+        let title = document.getElementById("title");
+        let forgotPassword = document.getElementById("forgotPassword");
+
+        // Store users in localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || {};
+
+        signinBtn.onclick = function () {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (users[username] && users[username] === password) {
+                localStorage.setItem('currentUser', username);
+                window.location.href = 'dashboard.html';
+            } else {
+                alert("Incorrect username or password.");
+            }
+        };
+
+        signupBtn.onclick = function () {
+            if (title.innerText === "Sign Up") {
+                const email = document.getElementById("email").value;
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                if (email && username && password) {
+                    users[username] = password;  // You may want to store email and password together in an object
+                    localStorage.setItem('users', JSON.stringify(users));
+                    alert("Account created successfully. Please sign in.");
+                    // Reset the form to sign in mode
+                    toggleToSignInMode();
+                } else {
+                    alert("Please fill out all fields.");
+                }
+            } else {
+                toggleToSignUpMode();
+            }
+        };
+
+        backToSigninBtn.onclick = function () {
+            toggleToSignInMode();
+        };
+
+        function toggleToSignUpMode() {
+            title.innerText = "Sign Up";
+            emailField.style.display = "block";
+            forgotPassword.style.display = "none";
+            signinBtn.style.display = "none";
+            signupBtn.innerText = "Create Account";
+            backToSigninBtn.style.display = "inline-block";
+        }
+
+        function toggleToSignInMode() {
+            title.innerText = "Sign In";
+            emailField.style.display = "none";
+            forgotPassword.style.display = "block";
+            signinBtn.style.display = "inline-block";
+            signupBtn.innerText = "Sign Up";
+            backToSigninBtn.style.display = "none";
+        }
+
+        // Cursor Effect
+        const cursorContainer = document.getElementById('cursorContainer');
+
+        const createCircle = () => {
+            const circle = document.createElement('div');
+            circle.className = 'cursor';
+            cursorContainer.appendChild(circle);
+            return circle;
+        };
+
+        const circles = Array.from({ length: 5 }, createCircle);
+
+        window.addEventListener('mousemove', (e) => {
+            circles.forEach((circle, index) => {
+                setTimeout(() => {
+                    circle.style.left = `${e.clientX}px`;
+                    circle.style.top = `${e.clientY}px`;
+                }, index * 40);
+            });
+        });
+    </script>
+</body>
+
+</html>

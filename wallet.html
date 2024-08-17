@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="wallet.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+            <div class="header-center">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo">
+                    <span>GGM Store</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="wallet.html" class="balance-button">+$0</a>
+                <div class="username">
+                    <img src="rose.jpg" alt="Profile" style="width:30px;height:30px;border-radius:50%;">
+                    <span id="usernameDisplay">Profile zf23</span>
+                    <button onclick="toggleDropdown()">▼</button>
+                    <div id="userDropdown" class="dropdown-content hidden">
+                        <a href="wallet.html">Wallet</a>
+                        <a href="#">Settings</a>
+                        <a href="index.html" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside id="sidebar" class="sidebar">
+            <nav>
+                <ul>
+                    <li class="menu-title">Menu</li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="wallet.html">Order History</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="load.html">Bug Report</a></li>
+                    <li class="menu-title">Products</li>
+                    <li><a href="load.html">Bank Logs</a></li>
+                    <li><a href="load.html">Card</a></li>
+                    <li><a href="load.html">Card With Pin</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="notification">
+            <span><span class="highlight">Payment Gateway Update !!</span> We just updated our payment gateway for store
+                credit top-up. Now it would be more convenient, <span class="highlight">Instant and
+                    Faster!</span></span>
+        </div>
+        <a href="load.html" class="add-balance">+ Add Balance</a>
+
+        <div class="history-container">
+            <div class="history-title">History</div>
+            <div class="history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Date</th>
+                            <th>Method</th>
+                            <th>Order ID</th>
+                            <th>Amount (USD)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Transaction history will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const usernameDisplay = document.getElementById('usernameDisplay');
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                usernameDisplay.textContent = currentUser;
+            } else {
+                usernameDisplay.textContent = 'Guest';
+            }
+        });
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html'; // redirect to login page
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
