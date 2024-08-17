@@ -6,17 +6,6 @@
     <title>Sign In</title>
     <link rel="stylesheet" href="login.css">
     <script src="https://kit.fontawesome.com/6ee7de340f.js" crossorigin="anonymous"></script>
-
-    <!-- Redirect logged-in users to login page -->
-    <script>
-        // Check if the user is logged in by looking for 'currentUser' in localStorage
-        const currentUser = localStorage.getItem('currentUser');
-
-        // If the user is logged in (currentUser exists), redirect to the login page
-        if (currentUser) {
-            window.location.href = 'login.html';  // Replace with your login page URL if different
-        }
-    </script>
 </head>
 
 <body>
@@ -65,59 +54,71 @@
         const users = JSON.parse(localStorage.getItem('users')) || {};
 
         signinBtn.onclick = function () {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            if (users[username] && users[username].password === password) {
-                localStorage.setItem('currentUser', username);
-                window.location.href = 'dashboard.html';
-            } else {
-                alert("Incorrect username or password.");
-            }
-        };
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-        signupBtn.onclick = function () {
-            if (title.innerText === "Sign Up") {
-                const email = document.getElementById("email").value;
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
+    // Check for empty fields during Sign In
+    if (!username || !password) {
+        alert("Please fill out all fields.");
+        return;
+    }
 
-                // Check if email is already taken
-                if (Object.values(users).some(user => user.email === email)) {
-                    alert("Email is already taken.");
-                    return;
-                }
+    // Check if the username and password match
+    if (users[username] && users[username].password === password) {
+        localStorage.setItem('currentUser', username);
+        window.location.href = 'dashboard.html';
+    } else {
+        alert("Incorrect username or password.");
+    }
+};
 
-                // Check if username is already taken or too short
-                if (username.length < 5 || username.length > 1) {
-                    alert("Username is too short.");
-                    return;
-                }
+signupBtn.onclick = function () {
+    if (title.innerText === "Sign Up") {
+        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-                if (users[username]) {
-                    alert("Username already exists. Please choose another one.");
-                    return;
-                }
+        // Check for empty fields during Sign Up
+        if (!email || !username || !password) {
+            alert("Please fill out all fields.");
+            return;
+        }
 
-                // Check if password is too weak
-                if (password.length < 5) {
-                    alert("Password is too easy.");
-                    return;
-                }
+        // Check if email is already taken
+        if (Object.values(users).some(user => user.email === email)) {
+            alert("Email is already taken.");
+            return;
+        }
 
-                // If all validations pass, store the user information
-                if (email && username && password) {
-                    users[username] = { email: email, password: password };
-                    localStorage.setItem('users', JSON.stringify(users));
-                    alert("Account created successfully. Please sign in.");
-                    // Reset the form to sign in mode
-                    toggleToSignInMode();
-                } else {
-                    alert("Please fill out all fields.");
-                }
-            } else {
-                toggleToSignUpMode();
-            }
-        };
+        // Check if username is too short
+        if (username.length < 5 && username.length > 0) {
+            alert("Username already taken.");
+            return;
+        }
+
+        // Check if username is already taken
+        if (users[username]) {
+            alert("Username already exists. Please choose another one.");
+            return;
+        }
+
+        // Check if password is too weak
+        if (password.length < 5) {
+            alert("Password is too easy.");
+            return;
+        }
+
+        // If all validations pass, store the user information
+        users[username] = { email: email, password: password };
+        localStorage.setItem('users', JSON.stringify(users));
+        alert("Account created successfully. Please sign in.");
+
+        // Reset the form to sign-in mode
+        toggleToSignInMode();
+    } else {
+        toggleToSignUpMode();
+    }
+};
 
         backToSigninBtn.onclick = function () {
             toggleToSignInMode();
