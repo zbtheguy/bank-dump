@@ -6,6 +6,17 @@
     <title>Sign In</title>
     <link rel="stylesheet" href="login.css">
     <script src="https://kit.fontawesome.com/6ee7de340f.js" crossorigin="anonymous"></script>
+
+    <!-- Redirect logged-in users to login page -->
+    <script>
+        // Check if the user is logged in by looking for 'currentUser' in localStorage
+        const currentUser = localStorage.getItem('currentUser');
+
+        // If the user is logged in (currentUser exists), redirect to the login page
+        if (currentUser) {
+            window.location.href = 'login.html';  // Replace with your login page URL if different
+        }
+    </script>
 </head>
 
 <body>
@@ -157,13 +168,6 @@
                 }, index * 40);
             });
         });
-         // Check if the user is logged in by looking for 'currentUser' in localStorage
-    const currentUser = localStorage.getItem('currentUser');
-
-    // If the user is logged in (currentUser exists), redirect to the login page
-    if (currentUser) {
-        window.location.href = 'login.html';  // Replace with your login page URL if different
-    }
     </script>
 </body>
 
